@@ -3,7 +3,8 @@ from ctypes import sizeof
 from random import Random
 import re
 import string
-from typing import List
+from tokenize import Double
+from typing import List, Tuple
 
 
 class Vertex:
@@ -56,7 +57,28 @@ class Graph:
         if element.color == self.graph[neighbour].color:
           element.pff = element.pff + 1
 
-  def _evaluate_conflicts(self) -> None:
+  def _evaluate_conflicts(self) -> int:
     count: int = 0
     for element in self.graph:
       count = count + element.pff
+    return count * 0.5
+
+  def _find_min_pff(self) -> int:
+    min: int = self.graph.__len__
+    for element in self.graph:
+      if element.pff < min:
+        min = element.pff
+    return min
+
+  def _find_max_pff(self) -> int:
+    max: int = 0
+    for element in self.graph:
+      if element.pff > max:
+        max = element.pff
+    return max
+
+  def _calculate_avg_pff(self) -> int:
+    avg: int = 0
+    for element in self.graph:
+      avg = avg + element.pff
+    return avg / self.graph.__len__
