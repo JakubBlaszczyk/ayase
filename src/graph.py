@@ -82,3 +82,11 @@ class Graph:
     for element in self.graph:
       avg = avg + element.pff
     return avg / self.graph.__len__
+
+  def takagi_sugeno_driver(self, fuzzy_logic: List[List[Double], List[Double], List[Double]]) -> Tuple[int, int]:
+    tournament_size
+    recolor_prob
+    for element in self.graph:
+      # jeśli powoduje mniej niż pół średniej konfliktów to jest dobry wierzchołek
+      # mnożymy ilośc konfilktów razy przynależność ( od 0 do 1 do zbioru)
+      # i robimy to dla każdego wierzchołkai i sumujemy uAi(x) ilość konfilktór w tym znaczeniu, fAi(x) to przynależnosć
